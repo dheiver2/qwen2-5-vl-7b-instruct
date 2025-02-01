@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { QwenAction, Message } from '@/lib/types';
-import { qwenService } from '@/lib/qwen-service';
+import { qwenService } from '@/services/qwen-service';
 
 interface UseChatOptions {
   onError?: (error: Error) => void;
@@ -39,7 +39,7 @@ export function useChat(options: UseChatOptions = {}) {
       setMessages(prev => [...prev, userMessage]);
 
       // Get response from Qwen
-      const response = await qwenService.sendMessage({
+      const response = await qwenService.sendRequest({
         text,
         action,
         files

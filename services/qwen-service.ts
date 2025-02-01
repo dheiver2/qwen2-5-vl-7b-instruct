@@ -1,9 +1,9 @@
-import { QwenRequest, QwenResponse, QwenAction } from './types';
+import { QwenRequest, QwenResponse, QwenAction } from 'lib/types';
 
 const API_URL = "https://stzhao-qwen2-5-vl-7b-instruct.hf.space";
 const API_TIMEOUT = 30000;
 
-export class QwenService {
+class QwenService {
   private async fetchWithTimeout(
     resource: RequestInfo,
     options: RequestInit & { timeout?: number } = {}
@@ -43,7 +43,7 @@ export class QwenService {
     return prompts[action] + text;
   }
 
-  public async sendMessage(request: QwenRequest): Promise<QwenResponse> {
+  public async sendRequest(request: QwenRequest): Promise<QwenResponse> {
     try {
       const prompt = this.getPromptForAction(request.action, request.text);
       
