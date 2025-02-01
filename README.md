@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Qwen Chat Interface
+
+An elegant and powerful chat interface for Qwen2.5-VL-7B-Instruct model, built with Next.js 14 and TypeScript.
+
+![Qwen Chat Interface](public/logo.png)
+
+## Features
+
+- 🎨 Modern, clean UI with animations and transitions
+- 💬 Real-time chat interface
+- 🖼️ Image generation and processing
+- 🔍 Web search capabilities
+- 📝 Code generation and syntax highlighting
+- 🎥 Video generation support
+- 📊 Artifact handling
+- 🌓 Light/Dark mode support
+- 📱 Fully responsive design
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Validation**: Zod
+- **Backend Integration**: REST API with Qwen2.5-VL-7B-Instruct
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm/yarn/pnpm
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun run dev
+git clone https://github.com/yourusername/qwen-chat.git
+cd qwen-chat
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Add environment variables:
+Create a `.env.local` file in the root directory:
+```env
+NEXT_PUBLIC_API_URL=your_api_url_here
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+The application will be available at `http://localhost:3000`.
 
-To learn more about Next.js, take a look at the following resources:
+### Building for Production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+qwen-chat/
+├── app/                  # Next.js app router directory
+├── components/          # React components
+│   ├── ChatInterface.tsx
+│   ├── ConnectionStatus.tsx
+│   ├── MessageList.tsx
+│   └── ChatActions.tsx
+├── lib/                # Utility functions and services
+│   ├── qwen-service.ts
+│   ├── types.ts
+│   └── utils.ts
+├── hooks/             # Custom React hooks
+│   └── use-chat.ts
+├── public/            # Static files
+│   └── logo.png
+└── styles/           # Global styles
+    └── globals.css
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Features in Detail
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Chat Interface
+- Real-time messaging
+- Message history
+- Typing indicators
+- File uploads
+- Copy message content
+- Timestamp display
+
+### AI Capabilities
+- Text generation
+- Image generation
+- Code generation
+- Web search
+- Video generation
+- Plan creation
+- News aggregation
+
+### UI/UX
+- Smooth animations
+- Loading states
+- Error handling
+- Responsive design
+- Accessibility features
+- Keyboard shortcuts
+
+## API Integration
+
+The interface connects to the Qwen2.5-VL-7B-Instruct model via RESTful API endpoints:
+
+- `/api/chat`: Main chat endpoint
+- `/api/upload`: File upload endpoint
+- `/api/generate`: Image generation endpoint
+
+## Configuration
+
+The project can be configured through environment variables and the `next.config.js` file.
+
+### Environment Variables
+
+- `NEXT_PUBLIC_API_URL`: API endpoint URL
+- `NEXT_PUBLIC_MAX_UPLOAD_SIZE`: Maximum file upload size
+- `NEXT_PUBLIC_SUPPORTED_FILES`: Supported file types
+
+### Next.js Configuration
+
+See `next.config.js` for:
+- Image optimization settings
+- API routes
+- Webpack configuration
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Qwen Team for the amazing model
+- Next.js team for the fantastic framework
+- All contributors and users of this project
+
+## Support
+
+For support, please open an issue in the GitHub repository or contact us at [your-email].
+
+## Security
+
+Please report any security vulnerabilities to [security-email].
+
+---
+
+Made with ❤️ by [Your Name/Team]
